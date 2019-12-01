@@ -29,4 +29,6 @@ body {
 }
 .btn__link {
     text-decoration: none;
+    color: rgb(0, 0, 0);
+    
 }
