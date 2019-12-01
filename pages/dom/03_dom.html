@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03_DOM</title>
+    <style>
+        .main {
+            text-decoration: none;
+        }
+        .traffic__lights {
+            width: 429px;
+            height: 600px;
+            position: relative;
+        }
+        .red {
+            position: absolute;
+            top: 180px;
+            left: 173px;
+            width: 116px;
+            height: 116px;
+            background: red;
+            border-radius: 50%;
+            visibility: hidden;            
+        }
+        .yellow {
+            position: absolute;
+            top: 360px;
+            left: 173px;
+            width: 116px;
+            height: 116px;
+            background: yellow;
+            border-radius: 50%;
+            visibility: hidden;
+        }
+        .green {
+            position: absolute;
+            top: 538px;
+            left: 173px;
+            width: 116px;
+            height: 116px;
+            background: green;
+            border-radius: 50%;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>Светофор</h1>
+    <button onclick="lightColor()">Переключить светофор</button>
+    <button><a class="main" href="../dom_main.html">Назад</a></button>
+    <div class="block"><img class="traffic__lights" src="./img/light.png" alt="">
+        <div class="red"></div>
+        <div class="yellow"></div>
+        <div class="green"></div>
+    </div>
+    
+    <script src="./js/03_dom.js"></script>
+</body>
+</html>

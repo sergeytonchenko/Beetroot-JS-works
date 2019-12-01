@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02_DOM</title>
+    <style>
+        body {
+            transition: linear 2s;
+        }
+        .main {
+            text-decoration: none;
+        }
+        #modal {
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+            width: 400px;
+            height: 100px;
+            background-color: rgb(192, 186, 186);
+            text-align: center;
+            border: 1px solid rgb(156, 152, 152);
+            box-shadow: 2px 2px 4px black;    
+        }
+        #modal__text {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+        <h1>Модальное окно</h1>
+        <button onclick="openWindow()">Показать модальное окно</button>
+        <button><a class="main" href="../dom_main.html">Назад</a></button>
+        <div id="modal">
+            <p id="modal__text">Это модальное окно</p>
+            <button id="modal__close" onclick="closeWindow()">Закрыть</button>
+        </div>
+        <script src="./js/02_dom.js"></script>
+</body>
+</html>
