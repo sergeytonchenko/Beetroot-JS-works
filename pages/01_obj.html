@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01_objects</title>
+    <style>
+        .box {
+            width: 1200px;
+            height: 650px;
+            border: 2px solid rgb(41, 105, 189);
+        }
+        h1 {
+            color: darkgrey;
+            text-align: center;
+            text-shadow: 2px 5px 5px black;
+        }
+
+        .car__box {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-start;
+            text-align: center;
+        }
+        .car {
+            filter: blur(20px);
+            transition: linear 2s;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;            
+            width: 330px;
+            height: 531px;
+        }
+
+        .info__block {
+            width: 300px;
+            height: 500px;
+            border: 2px solid green;
+            visibility: hidden;
+        }
+        #ala {
+            text-align: start;
+        }
+        .main {
+            text-decoration: none;
+        }
+        .drink {
+            visibility: hidden;
+        }
+        .drink__img {
+            width: 70px;
+            height: 70px;
+        }          
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>My favorite car</h1>
+        <div class="car__box">
+            <div class="car"><img src="../img/car.jpg" alt="car"></div>
+            <div class="info">
+                <div>
+                    <button onclick="printText(car), blurCar(), visiBlock()">Информация</button>
+                    <button><a class="main" href="../index.html">Вернуться на главную</a></button>
+                </div>                
+                <div class="info__block">
+                    <ul id="ala">
+                    </ul>
+                    <div class="task">
+                        <p><b>Задача для подсчета времени пройденного автомобилем расстояния</b></p>
+                        <div>L = <input type="text" name="" id="distance"> км;</div><br/>
+                        <div>V = <input type="text" name="" id="speed"> км/ч;</div><br/>
+                        <button onclick="task()">Подсчет затраченного времени</button>
+                        <p class="time"></p>
+                        <button onclick="dontDrink()">И самое главное!!!</button><br/>
+                        <div class="drink">
+                            <b>Не пейте за рулем!</b><br/>
+                            <img class="drink__img" src="../img/dont_drink.jpg" alt="car">
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/01_obj.js"></script>    
+</body>
+
+</html>
