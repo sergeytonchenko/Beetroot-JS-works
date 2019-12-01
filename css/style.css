@@ -27,3 +27,6 @@ body {
     height: 50px;
     width: 150px;
 }
+.btn__link {
+    text-decoration: none;
+}
