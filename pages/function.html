@@ -35,6 +35,23 @@
     .btn {
         width: 150px;
         height: 50px;
+        z-index: 0;        
+    }
+    .td {
+        position: relative;
+    }
+    .td:hover .text {
+        display: block;        
+    }
+    .text {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 60px;
+        background-color: rgb(132, 151, 170);
+        border: 2px solid grey;
+        transition: all 1s;
+        z-index: 1;
     }
     </style>
 </head>
@@ -43,22 +60,42 @@
     <div class="main__block">
             <table class="block__table">
                 <tr>
-                    <td><button onclick="checkNumber()" class="btn">Сравнение чисел</button></td>
-                    <td><button onclick="calcFactorial()" class="btn">Факториал числа</button></td>
-                    <td><button onclick="checkNumber()" class="btn">Сложение цифр в число</button></td>
+                    <td class="td">
+                        <button onclick="checkNumber()" class="btn">Сравнение чисел</button>
+                        <div class="text">Написать функцию, которая принимает 2 числа и возвращает -1, если первое меньше, чем второе; 1 – если первое больше, чем второе; и 0 – если числа равны.</div></td>
+                    <td class="td">
+                        <button onclick="calcFactorial()" class="btn">Факториал числа</button>
+                        <div class="text">Написать функцию, которая вычисляет факториал переданного ей числа.</div></td>
+                    <td class="td">
+                        <button onclick="checkNumber()" class="btn">Сложение цифр в число</button>
+                        <div class="text">Написать функцию, которая принимает три отдельные цифры и превращает их в одно число. Например: цифры 1, 4, 9 превратятся в число 149.</div></td>
                 </tr>
                 <tr>
-                    <td><button onclick="calcSquare()" class="btn">Прямоугольник</button></td>
-                    <td><button onclick="checkNumber1()" class="btn">Совершенное число</button></td>
-                    <td><button onclick="checkNumber2()" class="btn">Совершенное число в диапазоне</button></td>
+                    <td class="td">
+                        <button onclick="calcSquare()" class="btn">Прямоугольник</button>
+                        <div class="text">Написать функцию, которая принимает длину и ширину прямоугольника и вычисляет его площадь. Если в функцию передали 1 параметр, то она вычисляет площадь квадрата.</div></td>
+                    <td class="td">
+                        <button onclick="checkNumber1()" class="btn">Совершенное число</button>
+                        <div class="text">Написать функцию, которая проверяет, является ли переданное ей число совершенным. Совершенное число – это число, равное сумме всех своих собственных делителей.</div></td>
+                    <td class="td">
+                        <button onclick="checkNumber2()" class="btn">Совершенное число в диапазоне</button>
+                        <div class="text">Написать функцию, которая принимает минимальное и максимальное значения для диапазона, и выводит только те числа из диапазона, которые являются совершенными. Используйте написанную ранее функцию, чтобы узнавать, совершенное число или нет.</div></td>
                 </tr>
                 <tr>
-                    <td><button onclick="getDate1()" class="btn">Вывод времени</button></td>
-                    <td><button onclick="getDate2()" class="btn">Вывод времени в секундах</button></td>
-                    <td><button onclick="getDate3()" class="btn">Перевод секунд во время</button></td>
+                    <td class="td">
+                        <button onclick="getDate1()" class="btn">Вывод времени</button>
+                        <div class="text">Написать функцию, которая принимает время (часы, минуты, секунды) и выводит его на экран в формате «чч:мм:сс».Если при вызове функции минуты и/или секунды не были переданы, то выводить их как 00.</div></td>
+                    <td class="td">
+                        <button onclick="getDate2()" class="btn">Вывод времени в секундах</button>
+                        <div class="text">Написать функцию, которая принимает часы, минуты и секунды и возвращает это время в секундах.</div></td>
+                    <td class="td">
+                        <button onclick="getDate3()" class="btn">Перевод секунд во время</button>
+                        <div class="text">Написать функцию, которая принимает количество секунд, переводит их в часы, минуты и секунды и возвращает в виде строки «чч:мм:сс».</div></td>
                 </tr>
                 <tr>
-                    <td><button onclick="getDate4()" class="btn">Разница между датами</button></td>
+                    <td class="td">
+                        <button onclick="getDate4()" class="btn">Разница между датами</button>
+                        <div class="text">Написать функцию, которая считает разницу между датами. Функция принимает 6 параметров, которые описывают 2 даты, и возвращает результат в виде строки «чч:мм:сс».</div></td>
                     <td><a class="main" href="../index.html"><button class="btn">Вернуться на главную</button></a></td>
                 </tr>
                 
