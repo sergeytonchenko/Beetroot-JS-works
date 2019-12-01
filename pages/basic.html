@@ -35,6 +35,7 @@
     .btn {
         width: 150px;
         height: 50px;
+        z-index: 0;
         
     }
     .td {
@@ -45,8 +46,6 @@
         
     }
     .text {
-        height: 70px;
-        width: 200px;
         display: none;
         position: absolute;
         top: 50px;
@@ -54,6 +53,7 @@
         background-color: white;
         border: 2px solid grey;
         transition: all 1s;
+        z-index: 1;
     }
     </style>
 </head>
@@ -62,23 +62,50 @@
     <div class="main__block">
             <table class="block__table">
                 <tr>
-                    <td class="td"><button onclick="user_name()" class="btn">Имя пользователя</button>
-                    <div class="text">Запросите у пользователя его имя и выведите в ответ: «Привет, его имя!».</div></td>
-                    <td><button onclick="user_age()" class="btn">Возраст пользователя</button></td>
-                    <td><button onclick="square()" class="btn">Периметр квадрата</button></td>
+                    <td class="td">
+                        <button onclick="user_name()" class="btn">Имя пользователя</button>
+                        <div class="text">Запросите у пользователя его имя и выведите в ответ: «Привет, его имя!».</div></td>
+                    <td class="td">
+                        <button onclick="user_age()" class="btn">Возраст пользователя</button>
+                        <div class="text">Запросите у пользователя год его рождения, посчитайте,
+                    сколько ему лет и выведите результат. Текущий год укажите в коде как константу.</div></td>
+                    <td class="td">
+                        <button onclick="square()" class="btn">Периметр квадрата</button>
+                        <div class="text">Запросите у пользователя длину стороны квадрата и выведите периметр такого квадрата.</div></td>
                 </tr>
                 <tr>
-                    <td><button onclick="circle()" class="btn">Площадь окружности</button></td>
-                    <td><button onclick="distance()" class="btn">Расстояние между городами</button></td>
-                    <td><button onclick="currency()" class="btn">Конвертер валют</button></td>
+                    <td class="td">
+                        <button onclick="circle()" class="btn">Площадь окружности</button>
+                        <div class="text">Запросите у пользователя радиус окружности и выведите площадь такой окружности.</div></td>
+                    <td class="td">
+                        <button onclick="distance()" class="btn">Расстояние между городами</button>
+                        <div class="text">Запросите у пользователя расстояние в км между двумя городами и за сколько
+                            часов он хочет добраться.Посчитайте скорость, с которой необходимо двигаться,
+                            чтобы успеть вовремя.</div></td>
+                    <td class="td">
+                        <button onclick="currency()" class="btn">Конвертер валют</button>
+                        <div class="text">Реализуйте конвертор валют. Пользователь вводит доллары, программа переводит
+                            в евро. Курс валюты храните в константе.</div></td>
                 </tr>
                 <tr>
-                    <td><button onclick="capacity()" class="btn">Емкость флешки</button></td>
-                    <td><button onclick="chocolade()" class="btn">покупка шоколада</button></td>
-                    <td><button onclick="number()" class="btn">Перевернуть число</button></td>
+                    <td class="td">
+                        <button onclick="capacity()" class="btn">Емкость флешки</button>
+                        <div class="text">Пользователь указывает объем флешки в Гб. Программа должна посчитать,
+                            сколько файлов размером в 820 Мб помещается на флешку.</div></td>
+                    <td class="td">
+                        <button onclick="chocolade()" class="btn">Покупка шоколада</button>
+                        <div class="text">Пользователь вводит сумму денег в кошельке и цену одной шоколадки.
+                            Программа выводит, сколько шоколадок может купить пользователь, и сколько сдачи у него останется.</div></td>
+                    <td class="td">
+                        <button onclick="number()" class="btn">Перевернуть число</button>
+                        <div class="text">Запросите у пользователя трехзначное число и выведите его задом наперед.
+                            Для решения задачи вам понадобится оператор % (остаток от деления).</div></td>
                 </tr>
                 <tr>
-                    <td><button onclick="bank()" class="btn">Проценты в банке</button></td>
+                    <td class="td">
+                        <button onclick="bank()" class="btn">Проценты в банке</button>
+                        <div class="text">Пользователь вводит сумму вклада в банк на 2 месяца, с процентной ставкой депозита 5% годовых.
+                            Вывести сумму начисленных процентов.</div></td></td>
                     <td><a class="main" href="../index.html"><button class="btn">Вернуться на главную</button></a></td>
                 </tr>
                 
