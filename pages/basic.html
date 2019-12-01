@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Functions</title>
+    <style>
+            body {
+            background-image: url(../img/js_bg.jpg);    
+            background-position: top;
+        }
+        .main {
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                width: 150px;
+                height: 50px;
+            }
+        .title {
+        font-size: 50px;
+        text-align: center;
+        color: rgb(150, 146, 151);
+        text-shadow: 2px 2px 2px  rgb(0, 0, 0);
+    }
+    .main__block {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;   
+    }
+    .block__table {
+        height: 300px;
+        width: 600px;
+        text-align: center;
+    }
+    .btn {
+        width: 150px;
+        height: 50px;
+        
+    }
+    .td {
+        position: relative;
+    }
+    .td:hover .text {
+        display: block;
+        
+    }
+    .text {
+        height: 70px;
+        width: 200px;
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 70px;
+        background-color: white;
+        border: 2px solid grey;
+        transition: all 1s;
+    }
+    </style>
+</head>
+<body>
+    <h1 class="title">Основы JS</h1>
+    <div class="main__block">
+            <table class="block__table">
+                <tr>
+                    <td class="td"><button onclick="user_name()" class="btn">Имя пользователя</button>
+                    <div class="text">Запросите у пользователя его имя и выведите в ответ: «Привет, его имя!».</div></td>
+                    <td><button onclick="user_age()" class="btn">Возраст пользователя</button></td>
+                    <td><button onclick="square()" class="btn">Периметр квадрата</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="circle()" class="btn">Площадь окружности</button></td>
+                    <td><button onclick="distance()" class="btn">Расстояние между городами</button></td>
+                    <td><button onclick="currency()" class="btn">Конвертер валют</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="capacity()" class="btn">Емкость флешки</button></td>
+                    <td><button onclick="chocolade()" class="btn">покупка шоколада</button></td>
+                    <td><button onclick="number()" class="btn">Перевернуть число</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="bank()" class="btn">Проценты в банке</button></td>
+                    <td><a class="main" href="../index.html"><button class="btn">Вернуться на главную</button></a></td>
+                </tr>
+                
+            </table>
+        </div>
+    <script src="basic.js"></script> 
+</body>
+</html>
