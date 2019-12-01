@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Basic JS</title>
+    <title>Data JS</title>
     <style>
             body {
             background-image: url(../img/js_bg.jpg);    
@@ -56,59 +56,54 @@
     </style>
 </head>
 <body>
-    <h1 class="title">Основы JS</h1>
+    <h1 class="title">Типы данных в JS</h1>
     <div class="main__block">
             <table class="block__table">
                 <tr>
                     <td class="td">
-                        <button onclick="user_name()" class="btn">Имя пользователя</button>
-                        <div class="text">Запросите у пользователя его имя и выведите в ответ: «Привет, его имя!».</div></td>
-                    <td class="td">
                         <button onclick="user_age()" class="btn">Возраст пользователя</button>
-                        <div class="text">Запросите у пользователя год его рождения, посчитайте,
-                    сколько ему лет и выведите результат. Текущий год укажите в коде как константу.</div></td>
+                        <div class="text">Запросить у пользователя его возраст и определить, кем он является: ребенком (0–2), подростком (12–18), взрослым (18_60) или пенсионером (60– ...).</div></td>
                     <td class="td">
-                        <button onclick="square()" class="btn">Периметр квадрата</button>
-                        <div class="text">Запросите у пользователя длину стороны квадрата и выведите периметр такого квадрата.</div></td>
+                        <button onclick="symbol()" class="btn">Символ клавиатуры</button>
+                        <div class="text">Запросить у пользователя число от 0 до 9 и вывести ему спецсимвол, который расположен на этой клавише (1–!, 2–@, 3–# и т. д).</div></td>
+                    <td class="td">
+                        <button onclick="threeNumber()" class="btn">Трехзначное число</button>
+                        <div class="text">Запросить у пользователя трехзначное число и проверить, есть ли в нем одинаковые цифры.</div></td>
                 </tr>
                 <tr>
                     <td class="td">
-                        <button onclick="circle()" class="btn">Площадь окружности</button>
-                        <div class="text">Запросите у пользователя радиус окружности и выведите площадь такой окружности.</div></td>
+                        <button onclick="year()" class="btn">Високосный год</button>
+                        <div class="text">Запросить у пользователя год и проверить, високосный он или нет. 
+                                Високосный год либо кратен 400, либо кратен 4 и при этом не кратен 100.</div></td>
                     <td class="td">
-                        <button onclick="distance()" class="btn">Расстояние между городами</button>
-                        <div class="text">Запросите у пользователя расстояние в км между двумя городами и за сколько
-                            часов он хочет добраться.Посчитайте скорость, с которой необходимо двигаться,
-                            чтобы успеть вовремя.</div></td>
+                        <button onclick="palindrome()" class="btn">Палиндром</button>
+                        <div class="text">Запросить у пользователя пятиразрядное число и определить, является ли оно палиндромом.</div></td>
                     <td class="td">
                         <button onclick="currency()" class="btn">Конвертер валют</button>
-                        <div class="text">Реализуйте конвертор валют. Пользователь вводит доллары, программа переводит
-                            в евро. Курс валюты храните в константе.</div></td>
+                        <div class="text">Написать конвертор валют. Пользователь вводит количество USD, выбирает, в какую валюту хочет перевести EUR, UAN или AZN, и получает в ответ соответствующую сумму.</div></td>
                 </tr>
                 <tr>
                     <td class="td">
-                        <button onclick="capacity()" class="btn">Емкость флешки</button>
-                        <div class="text">Пользователь указывает объем флешки в Гб. Программа должна посчитать,
-                            сколько файлов размером в 820 Мб помещается на флешку.</div></td>
+                        <button onclick="purchase()" class="btn">Покупка</button>
+                        <div class="text">Запросить у пользователя сумму покупки и вывести сумму к оплате со скидкой: от 200 до 300 – скидка будет 3%, от 300 до 500 – 5%, от 500 и выше – 7%.</div></td>
                     <td class="td">
-                        <button onclick="chocolade()" class="btn">Покупка шоколада</button>
-                        <div class="text">Пользователь вводит сумму денег в кошельке и цену одной шоколадки.
-                            Программа выводит, сколько шоколадок может купить пользователь, и сколько сдачи у него останется.</div></td>
+                        <button onclick="circleSquare()" class="btn">Окружность в квадрате</button>
+                        <div class="text">Запросить у пользователя длину окружности и периметр квадрата. Определить, может ли такая
+                        окружность поместиться в указанный квадрат.</div></td>
                     <td class="td">
-                        <button onclick="number()" class="btn">Перевернуть число</button>
-                        <div class="text">Запросите у пользователя трехзначное число и выведите его задом наперед.
-                            Для решения задачи вам понадобится оператор % (остаток от деления).</div></td>
+                        <button onclick="questions()" class="btn">Три вопроса</button>
+                        <div class="text">Задать пользователю 3 вопроса, в каждом вопросе по 3 варианта ответа. За каждый правильный ответ начисляется 2 балла. После вопросов выведите пользователю количество набранных баллов.</div></td>
                 </tr>
                 <tr>
                     <td class="td">
-                        <button onclick="bank()" class="btn">Проценты в банке</button>
-                        <div class="text">Пользователь вводит сумму вклада в банк на 2 месяца, с процентной ставкой депозита 5% годовых.
-                            Вывести сумму начисленных процентов.</div></td></td>
+                        <button onclick="date()" class="btn">Дата</button>
+                        <div class="text">Запросить дату (день, месяц, год) и вывести следующую за ней дату. 
+                                Учтите возможность перехода на следующий месяц, год, а также високосный год.</div></td>
                     <td><a class="main" href="../index.html"><button class="btn">Вернуться на главную</button></a></td>
                 </tr>
                 
             </table>
         </div>
-    <script src="basic.js"></script> 
+    <script src="data.js"></script> 
 </body>
 </html>
