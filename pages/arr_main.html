@@ -6,20 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Array</title>
     <style>
-            .main {
+            body {
+            background-image: url(../img/js_bg.jpg);    
+            background-position: top;
+        }
+        .main {
                 text-decoration: none;
+                color: rgb(0, 0, 0);
+                width: 150px;
+                height: 50px;
             }
-        </style>
+        .title {
+        font-size: 50px;
+        text-align: center;
+        color: rgb(150, 146, 151);
+        text-shadow: 2px 2px 2px  rgb(0, 0, 0);
+    }
+    .main__block {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;   
+    }
+    .block__table {
+        height: 300px;
+        width: 600px;
+        text-align: center;
+    }
+    .btn {
+        width: 130px;
+        height: 50px;
+    }
+    </style>
 </head>
 <body>
-    <h1>Работа с массивами в JS</h1>
-    <button><a class="main" href="../index.html">Вернуться на главную</a></button>
-    <ul>
-        <li><a href="./arr/01_arr.html">Список покупок</a>;</li>
-        <li><a href="./arr/02_arr.html">Чек в магазине</a>;</li>
-        <li><a href="./arr/03_arr.html">CSS-стили</a>;</li>
-        <li><a href="./arr/04_arr.html">Аудитории в факультете</a></li>
-    </ul>
-    
+    <h1 class="title">Работа с массивами в JS</h1>
+    <div class="main__block">
+            <table class="block__table">
+                <tr>
+                    <td><a class="main" href="./arr/01_arr.html"><button class="btn">Список покупок</button></a></td>
+                    <td><a class="main" href="./arr/02_arr.html"><button class="btn">Чек в магазине</button></a></td>
+                    <td><a class="main" href="./arr/03_arr.html"><button class="btn">CSS-стили</button></a></td>
+                    <td><a class="main" href="./arr/04_arr.html"><button class="btn">Аудитории в факультете</button></a></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><a class="main" href="../index.html"><button class="btn">Вернуться на главную</button></a></td>
+                </tr>
+            </table>
+        </div>
 </body>
 </html>
