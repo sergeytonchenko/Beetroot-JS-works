@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cycle JS</title>
+    <style>
+            body {
+            background-image: url(../img/js_bg.jpg);    
+            background-position: top;
+        }
+        .main {
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                width: 150px;
+                height: 50px;
+            }
+        .title {
+        font-size: 50px;
+        text-align: center;
+        color: rgb(150, 146, 151);
+        text-shadow: 2px 2px 2px  rgb(0, 0, 0);
+    }
+    .main__block {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;   
+    }
+    .block__table {
+        height: 300px;
+        width: 600px;
+        text-align: center;
+    }
+    .btn {
+        width: 150px;
+        height: 50px;
+        z-index: 0;        
+    }
+    .td {
+        position: relative;
+    }
+    .td:hover .text {
+        display: block;        
+    }
+    .text {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 60px;
+        background-color: rgb(132, 151, 170);
+        border: 2px solid grey;
+        transition: all 1s;
+        z-index: 1;
+    }
+    </style>
+</head>
+<body>
+    <h1 class="title">Циклы в JS</h1>
+    <div class="main__block">
+            <table class="block__table">
+                <tr>
+                    <td class="td">
+                        <button onclick="cycle1 ()" class="btn">Сумма чисел</button>
+                        <div class="text">Подсчитать сумму всех чисел в заданном пользователем диапазоне</div></td>
+                    <td class="td">
+                        <button onclick="cycle2 ()" class="btn">Наибольший общий делитель</button>
+                        <div class="text">Запросить 2 числа и найти только наибольший общий делитель</div></td>
+                    <td class="td">
+                        <button onclick="cycle3 ()" class="btn">Делители числа</button>
+                        <div class="text">Запросить у пользователя число и вывести все делители этого числа</div></td>
+                </tr>
+                <tr>
+                    <td class="td">
+                        <button onclick="cycle4 ()" class="btn">Количество цифр в числе</button>
+                        <div class="text">Определить количество цифр в введенном числе</div></td>
+                    <td class="td">
+                        <button onclick="cycle5 ()" class="btn">Подсчет чисел</button>
+                        <div class="text">Запросить у пользователя 10 чисел и подсчитать, сколько он ввел положительных, отрицательных и нулей. При этом также посчитать, сколько четных и нечетных. Вывести статистику на экран. Учтите, что достаточно одной переменной (не 10) для ввода чисел пользователем</div></td>
+                    <td class="td">
+                        <button onclick="cycle6 ()" class="btn">Калькулятор</button>
+                        <div class="text">Зациклить калькулятор. Запросить у пользователя 2 числа и знак, решить пример, вывести результат и спросить, хочет ли он решить еще один пример. И так до тех пор, пока пользователь не откажется</div></td>
+                </tr>
+                <tr>
+                    <td class="td">
+                        <button onclick="cycle7 ()" class="btn">Сдвиг цифр в числе</button>
+                        <div class="text">Запросить у пользователя число и на сколько цифр его сдвинуть. Сдвинуть цифры числа и вывести результат (если число 123456 сдвинуть на 2 цифры, то получится 345612).</div></td>
+                    <td class="td">
+                        <button onclick="cycle8 ()" class="btn">Вывод дней недели</button>
+                        <div class="text">Зациклить вывод дней недели таким образом: «День недели. Хотите увидеть следующий день?» и так до тех пор, пока пользователь нажимает OK.</div></td>
+                    <td class="td">
+                        <button onclick="cycle9 ()" class="btn">Таблица умножения</button>
+                        <div class="text">Вывести таблицу умножения для всех чисел от 2 до 9. Каждое число необходимо умножить на числа от 1 до 10.</div></td>
+                </tr>
+                <tr>
+                    <td class="td">
+                        <button onclick="cycle10 ()" class="btn">Угадай число</button>
+                        <div class="text">Игра «Угадай число»</div></td>
+                    <td><a class="main" href="../index.html"><button class="btn">Вернуться на главную</button></a></td>
+                </tr>
+                
+            </table>
+        </div>
+    <script src="cycle.js"></script> 
+</body>
+</html>
