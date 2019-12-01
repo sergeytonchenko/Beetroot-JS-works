@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04_Arr</title>
+    <style>
+        .main {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Список аудиторий</h1>
+    <div>
+        <button onclick="printArr(room)">Вывод аудиторий</button>
+        <button onclick="audFacul(room)">Вывод аудиторий для факультета</button>
+        <button onclick="sortAud(room)">Сортировка по названию аудиторий</button> 
+        <button onclick="sortSite(room)">Сортировка по количеству мест</button>
+        <button onclick="siteStud(room)">Аудитория для группы</button> 
+        <button><a class="main" href="../arr_main.html">Вернуться на главную</a></button>       
+    </div>
+    <div>
+        <p class="list"></p>
+        <p class="sum"></p>
+        <p class="site"></p>
+    </div>
+
+    <script src="./js/04_arr.js"></script>    
+</body>
+</html>
