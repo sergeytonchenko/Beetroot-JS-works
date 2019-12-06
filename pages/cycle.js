@@ -155,6 +155,7 @@ do {
 } while (confirm (`"Сегодня ${arr [a]}, хотите увидеть следующий день?"`));
 };
 
+
 function cycle9 () {
 let a;
 
@@ -167,4 +168,41 @@ for (let number = 2; number <= 9; number++) {
     document.writeln("Умножение на ", number, " = ", c, "<br>");
 };
 };
+
+
+function cycle10 () {
+    alert("Загадайте число от 0 до 100");
+
+    let N = 50;
+    let c = 50;
+    let b = 25;
+    let d = 0;
+    
+    while (d == 0) {
+        let a = prompt(`Ваше число > ${N},< ${N} или == ${N}?`, ">, <, ==");
+        if (a == '>') {
+            N = c + b;
+            c = N;
+            b = Math.round(b / 2);
+            if (N == 101) {
+            alert(`Ваше число 100`);
+            break;
+            }
+        } if (a == '<') {
+            N = c - b;
+            c = N;
+            b = Math.round(b / 2);
+            if (N == -1) {
+                alert(`Ваше число 0`);
+                break;
+            }
+        } if (a == '==') {
+            alert(`Ваше число ${N}`);  
+            d = 1;
+        };
+    };
+}
+
+
+
 
