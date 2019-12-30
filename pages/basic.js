@@ -54,8 +54,14 @@ function user_age() {
 function square() {
     let square = +prompt("Укажите длинну стороны квадрата", "4");      
 
-    while (typeof(square) === 'string' || square === null || square === '' || square <= 0 ) {        
+    //Добавление переменной на проверку валидности введенных символов
+    let reg = /^[0-9]{1,20}$/;
+    let rez = reg.test(square); 
+
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+    while (rez == false || square === null || square === '' || square <= 0 ) {        
         square = +prompt("Укажите длинну стороны квадрата", "4");
+        rez = reg.test(square);
     }
      let perimeter = 4 * square;
 
