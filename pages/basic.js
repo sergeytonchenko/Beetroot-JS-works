@@ -70,11 +70,20 @@ function square() {
 
 // Запросите у пользователя радиус окружности и выведите площадь такой окружности.
 function circle() {
-    let radius = prompt("Укажите радиус окружности");
+    let radius = +prompt("Укажите радиус окружности");
 
-let area = Math.PI * Math.pow(radius, 2);
+    //Добавление переменной на проверку валидности введенных символов
+    let reg = /^[0-9]{1,20}$/;
+    let rez = reg.test(radius);
+    
+    while (rez == false || radius === null || radius === '' || radius <= 0 ) {        
+        radius = +prompt("Укажите радиус окружности");
+        rez = reg.test(square);
+    }
 
-alert ("Площадь окружности равна " + area);
+    let area = Math.PI * Math.pow(radius, 2);
+
+    alert ("Площадь окружности равна " + area);
 };
 
 // Запросите у пользователя расстояние в км между двумя городами и за сколько часов он хочет добраться.
