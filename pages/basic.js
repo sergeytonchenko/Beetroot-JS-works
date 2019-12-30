@@ -70,18 +70,18 @@ function square() {
 
 // Запросите у пользователя радиус окружности и выведите площадь такой окружности.
 function circle() {
-    let radius = +prompt("Укажите радиус окружности");
+    let radius = +prompt("Укажите радиус окружности", "2");
 
     //Добавление переменной на проверку валидности введенных символов
     let reg = /^[0-9]{1,20}$/;
     let rez = reg.test(radius);
     
     while (rez == false || radius === null || radius === '' || radius <= 0 ) {        
-        radius = +prompt("Укажите радиус окружности");
-        rez = reg.test(square);
+        radius = +prompt("Укажите радиус окружности", "2");
+        rez = reg.test(radius);    
     }
 
-    let area = Math.PI * Math.pow(radius, 2);
+    let area = (Math.PI * Math.pow(radius, 2)).toFixed(2);
 
     alert ("Площадь окружности равна " + area);
 };
