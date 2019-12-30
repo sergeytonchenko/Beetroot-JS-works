@@ -12,6 +12,7 @@ function user_name() {
         a = prompt("Назовите свое имя", "Сергей");              
         rez = reg.test(a);
     }
+        a = a.toLowerCase();//Убираем все заглавные буквы, если значение введено с CapsLock
         a = a[0].toUpperCase() + a.slice(1); //Делает первую букву заглавной
         alert ("Привет, " + a + "!");
     
