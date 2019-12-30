@@ -5,8 +5,7 @@ function user_name() {
 
     //Добавление переменной на проверку валидности введенных символов
     let reg = /^[а-яА-ЯёЁa-zA-Z\-\'\.]{1,20}$/;
-    let rez = reg.test(a); 
-    console.log(a);   
+    let rez = reg.test(a);     
 
     //Проверка на ввод данных: проверку валидности символов, пустой строки, нажатия "Отмена" 
     while (rez == false || a === null || a === '') {        
@@ -22,17 +21,22 @@ function user_name() {
 //  Текущий год укажите в коде как константу.
 function user_age() {
     let year = +prompt("Какого Вы года рождения?", "1990");
-
-    //Проверка на ввод данных: пустой строки, нажатия Отмена, год рождения на ниже 1920 и не выше 2018
-    while (typeof(year) === 'string' || year === null || year === '' || year < 1920 || year > 2018) {        
+    
+    //Добавление переменной на проверку валидности введенных символов
+    let reg = /^[0-9]{4}$/;
+    let rez = reg.test(year); 
+    
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, год рождения на ниже 1920 и не выше 2018
+    while (rez == false || year === null || year === '' || year < 1920 || year > 2018) {        
         year = +prompt("Какого Вы года рождения?", "1990");
+        rez = reg.test(year);
     }
 
-const GURRYEAR = 2020;
+    const GURRYEAR = 2020;
 
-let age = GURRYEAR - year;
+    let age = GURRYEAR - year;
 
-switch (true) {
+    switch (true) {
     case age % 10 == 2 || age % 10 == 3 || age % 10 == 4:
         alert ("Вам " + age + " года");
         break;
