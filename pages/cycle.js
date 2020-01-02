@@ -1,19 +1,32 @@
 //Подсчитать сумму всех чисел в заданном пользователем диапазоне.
 function cycle1 () {
-let numberFirst = +prompt("Введите диапазон от");
+let numberFirst = +prompt("Введите диапазон от", '0');
 
-let numberSecond = +prompt("до");
+//Добавление переменной на проверку валидности введенных символов
+let reg = /^[0-9]{1,20}$/;
+let rez1 = reg.test(numberFirst);
+  
+//Проверка на ввод данных: проверку валидности символов, нажатия Отмена
+while (rez1 == false || numberFirst === null || numberFirst === '') {        
+    numberFirst = +prompt("Введите диапазон от", '0');
+    rez1 = reg.test(numberFirst);
+}
+
+let numberSecond = +prompt("до", '10');
+let rez2 = reg.test(numberSecond);
+//Проверка на ввод данных: проверку валидности символов, нажатия Отмена
+while (rez2 == false || numberSecond === null || numberSecond === '') {        
+    numberSecond = +prompt("до", '10');
+    rez2 = reg.test(numberSecond);
+}
 
 let sum = 0;
 
 while (numberFirst <= numberSecond) {
-
     sum += numberFirst;
-
     numberFirst++;
-
 }
-alert(`Сумма чисел в заданном дмапазоне равна ${sum}`);
+alert(`Сумма чисел в заданном диапазоне равна ${sum}`);
 };
 
 
