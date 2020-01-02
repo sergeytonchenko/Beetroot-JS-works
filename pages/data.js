@@ -4,7 +4,7 @@ function user_age() {
     let age = +prompt('Введите свой возраст', '30');
 
     //Добавление переменной на проверку валидности введенных символов
-    let reg = /^[0-9]{1,3}$/;
+    let reg = /[\d]{1,3}/;
     let rez = reg.test(age);
     //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
     while (rez == false || age === null || age === '' || age <= 0 || age >= 121) {        
@@ -42,7 +42,7 @@ function symbol() {
     let key = +prompt('Введите число от 0 до 9', '0');
 
     //Добавление переменной на проверку валидности введенных символов
-    let reg = /^[0-9]{1}$/;
+    let reg = /[\d]{1}/;
     let rez = reg.test(key);
     //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
     while (rez == false || key == null || key == '') {        
@@ -93,7 +93,7 @@ function threeNumber() {
     let number = +prompt('Введите трехзначное число', '100');
 
     //Добавление переменной на проверку валидности введенных символов
-    let reg = /^[1-9][0-9][0-9]$/;
+    let reg = /[1-9][\d][\d]/;
     let rez = reg.test(number);
     //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
     while (rez == false || number == null || number == '') {        
@@ -136,7 +136,7 @@ function year() {
     let year = +prompt("Укажите год", '1987');
 
     //Добавление переменной на проверку валидности введенных символов
-    let reg = /^[0-9]{1,4}$/;
+    let reg = /[\d]{1,4}/;
     let rez = reg.test(year);
     //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
     while (rez == false || year == null || year == '') {        
@@ -199,12 +199,35 @@ function palindrome() {
 // Написать конвертор валют. Пользователь вводит количество USD, выбирает, в какую валюту хочет перевести
 //  EUR, UAN или AZN, и получает в ответ соответствующую сумму.
 function currency() {
-    let dollar = +prompt("Укажите колличество долларов США");
+    let dollar = +prompt("Укажите колличество долларов США", "100");
+
+    //Добавление переменной на проверку валидности введенных символов
+    let reg1 = /[\d]{1,20}/;
+    let rez1 = reg1.test(dollar);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, пустую строку
+    while (rez1 == false || dollar == null || dollar == '') {        
+        dollar = +prompt("Укажите колличество долларов США", "100");
+        rez1 = reg1.test(dollar);    
+    }
+
     let currency = prompt(`В какую валюту Вы хотите перевести USD:
     EUR
     UAN
-    AZN`
+    AZN`, 'EUR'
     );
+
+    //Добавление переменной на проверку валидности введенных символов
+    let reg2 = /^(EUR)|(UAN)|(AZN)$/;
+    let rez2 = reg2.test(currency);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, пустую строку
+    while (rez2 == false || currency == null || currency == '') {        
+        currency = prompt(`В какую валюту Вы хотите перевести USD:
+        EUR
+        UAN
+        AZN`, 'EUR'
+        );
+        rez2 = reg2.test(currency);    
+    }
     const usdEur = 0.9;
     const usdUan = 24.74;
     const usdAzn = 1.7;
@@ -229,64 +252,86 @@ function currency() {
     }; 
 };
 
-
 // Запросить у пользователя сумму покупки и вывести сумму к оплате со скидкой:
 //  от 200 до 300 – скидка будет 3%, от 300 до 500 – 5%, от 500 и выше – 7%.
 function purchase() {
-    let purchase = +prompt("Введите сумму покупки");
+    let purchase = +prompt("Введите сумму покупки", "больше 200");
 
-let discount;
-let sum;
+    //Добавление переменной на проверку валидности введенных символов
+    let reg = /[\d]{3,20}/;
+    let rez = reg.test(purchase);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, пустую строку
+    while (rez == false || purchase == null || purchase == '' || purchase <= 200) {        
+        purchase = +prompt("Введите сумму покупки", "больше 200");
+        rez = reg.test(purchase);    
+    }
 
-switch (true) {
-    case purchase >= 200 && purchase <= 300:
-        discount = 0.03;
-        sum = purchase - (discount * purchase);
-        alert (`Сумма покупки со скидкой равна, ${sum}`);
-        break;
-    case purchase > 300 && purchase <= 500:
-        discount = 0.05;
-        sum = purchase - (discount * purchase);
-        alert (`Сумма покупки со скидкой равна, ${sum}`);
-        break;
-    case purchase > 500:
-        discount = 0.07;
-        sum = purchase - (discount * purchase);
-        alert (`Сумма покупки со скидкой равна, ${sum}`);
-        break;
-    default:
-        alert ("Что-то пошло не так")
-        break;
+    let discount;
+    let sum;
+
+    switch (true) {
+        case purchase >= 200 && purchase <= 300:
+            discount = 0.03;
+            sum = purchase - (discount * purchase);
+            alert (`Сумма покупки со скидкой равна, ${sum}`);
+            break;
+        case purchase > 300 && purchase <= 500:
+            discount = 0.05;
+            sum = purchase - (discount * purchase);
+            alert (`Сумма покупки со скидкой равна, ${sum}`);
+            break;
+        case purchase > 500:
+            discount = 0.07;
+            sum = purchase - (discount * purchase);
+            alert (`Сумма покупки со скидкой равна, ${sum}`);
+            break;
+        default:            
+            break;
 };
 };
 
 // Запросить у пользователя длину окружности и периметр квадрата. Определить, может ли такая
 //  окружность поместиться в указанный квадрат.
 function circleSquare() {
-    let circle = +prompt("Введите длину окружности");
+    let circle = +prompt("Введите длину окружности", "5");
 
-let square = +prompt("Введите периметр квадрата");
+    let reg1 = /[\d]{1,6}/;
+    let rez1 = reg1.test(circle);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+    while (rez1 == false || circle == null || circle == '' || circle <= 0 ) {        
+        circle = +prompt("Введите длину окружности", "5");
+        rez1 = reg1.test(circle);    
+    }
 
-let radius = circle / (2 * Math.PI);
+    let square = +prompt("Введите периметр квадрата" , "5");
 
-let side = square / 4;
+    let reg2 = /[\d]{1,6}/;
+    let rez2 = reg2.test(square);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+    while (rez2 == false || square == null || square == '' || square <= 0 ) {        
+        square = +prompt("Введите периметр квадрата" , "5");
+        rez2 = reg2.test(square);    
+    }
 
-alert("Условие для окружности вписанной в квадрат R=a/2");
-console.log(radius);
-console.log(side);
-
-if (radius <= side / 2) {
-    console.log(true);
-} else {
-    console.log(false);
-};
-
-
-if (radius <= side / 2) {
-    alert ("Вписывается")
-} else {
-    alert ("Не вписывается")
-};
+    let radius = circle / (2 * Math.PI);
+    
+    let side = square / 4;
+    
+    alert("Условие для окружности вписанной в квадрат R=a/2");
+    console.log(radius);
+    console.log(side);
+    
+    if (radius <= side / 2) {
+        console.log(true);
+    } else {
+        console.log(false);
+    };    
+    
+    if (radius <= side / 2) {
+        alert ("Вписывается")
+    } else {
+        alert ("Не вписывается")
+    };
 };
 
 
@@ -295,9 +340,15 @@ if (radius <= side / 2) {
 // пользователю количество набранных баллов.
 function questions() {
     
-let questionOne = prompt(`Назовите столицу Болгарии.
-Варианты ответа: София, Александрия, Лидия`);
-
+let questionOne = prompt("Назовите столицу Болгарии.", "София, Александрия, Лидия");
+//Добавление переменной на проверку валидности введенных символов
+let reg1 = /София|Александрия|Лидия/;
+let rez1 = reg1.test(questionOne);
+//Проверка на ввод данных: проверку валидности символов, нажатия Отмена, пустую строку
+while (rez1 == false || questionOne == null || questionOne == '') {        
+    questionOne = prompt("Назовите столицу Болгарии.", "София, Александрия, Лидия");
+    rez1 = reg1.test(questionOne);    
+}
 let questionTwo = prompt(`Как имя писателя Азимова.
 Варианты ответа: Борис, Айзек, Альберт`);
 
