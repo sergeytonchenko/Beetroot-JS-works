@@ -217,7 +217,7 @@ function currency() {
     );
 
     //Добавление переменной на проверку валидности введенных символов
-    let reg2 = /^(EUR)|(UAN)|(AZN)$/;
+    let reg2 = /^EUR|UAN|AZN$/;
     let rez2 = reg2.test(currency);
     //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, пустую строку
     while (rez2 == false || currency == null || currency == '') {        
