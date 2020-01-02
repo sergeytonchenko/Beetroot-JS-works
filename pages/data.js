@@ -45,7 +45,7 @@ function symbol() {
     let reg = /^[0-9]{1}$/;
     let rez = reg.test(key);
     //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
-    while (rez == false || key === null || key === '') {        
+    while (rez == false || key == null || key == '') {        
         key = +prompt('Введите число от 0 до 9', '0');
         rez = reg.test(key);    
     }
@@ -96,7 +96,7 @@ function threeNumber() {
     let reg = /^[1-9][0-9][0-9]$/;
     let rez = reg.test(number);
     //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
-    while (rez == false || number === null || number === '') {        
+    while (rez == false || number == null || number == '') {        
         number = +prompt('Введите трехзначное число', '100');
         rez = reg.test(number);    
     }
@@ -139,7 +139,7 @@ function year() {
     let reg = /^[0-9]{1,4}$/;
     let rez = reg.test(year);
     //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
-    while (rez == false || year === null || year === '') {        
+    while (rez == false || year == null || year == '') {        
         year = +prompt("Укажите год", '1987');
         rez = reg.test(year);    
     }
@@ -155,24 +155,45 @@ function year() {
 
 // Запросить у пользователя пятиразрядное число и определить, является ли оно палиндромом.
 function palindrome() {
-    let number = prompt('Введите пятизначное число');
+    let number = +prompt('Введите пятизначное число', '12321');
 
-numFifth = ((((number % 10000) % 1000) % 100 ) % 10);
-console.log(numFifth);
-numFourth = Math.trunc((number % 100) / 10);
-console.log(numFourth);
-numThird = Math.trunc((number % 1000) / 100);
-console.log(numThird);
-numSecond = Math.trunc((number % 10000) / 1000);
-console.log(numSecond);
-numFirst = Math.trunc(number / 10000);
-console.log(numFirst);
+    //Добавление переменной на проверку валидности введенных символов
+    let reg = /[1-9][\d]{4}/;
+    let rez = reg.test(number);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+    while (rez == false || number == null || number == '') {        
+        number = +prompt('Введите пятизначное число', '12321');
+        rez = reg.test(number);    
+    }
 
-if (numFifth == numFirst && numFourth == numSecond) {
-    alert ("Введенное Вами число - палиндром")
-} else {
-    alert ("Введенное Вами число не палиндром")
-};
+    //Первый вариант решения задачи
+    // let a = new String(number);
+    
+    // let palindrom = a.split('').reverse().join('');
+
+    // if (palindrom == a) {
+    //     alert ("Введенное Вами число - палиндром");
+    // } else {
+    //     alert ("Введенное Вами число не палиндром");
+    // }
+
+    //Второй вариант решения задачи
+    numFifth = ((((number % 10000) % 1000) % 100 ) % 10);
+    console.log(numFifth);
+    numFourth = Math.trunc((number % 100) / 10);
+    console.log(numFourth);
+    numThird = Math.trunc((number % 1000) / 100);
+    console.log(numThird);
+    numSecond = Math.trunc((number % 10000) / 1000);
+    console.log(numSecond);
+    numFirst = Math.trunc(number / 10000);
+    console.log(numFirst);
+    
+    if (numFifth == numFirst && numFourth == numSecond) {
+        alert ("Введенное Вами число - палиндром")
+    } else {
+        alert ("Введенное Вами число не палиндром")
+    };
 };
 
 // Написать конвертор валют. Пользователь вводит количество USD, выбирает, в какую валюту хочет перевести
