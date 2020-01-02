@@ -1,7 +1,16 @@
 // Запросить у пользователя его возраст и определить, кем он является: ребенком (0–2), подростком (12–18),
 //  взрослым (18_60) или пенсионером (60– ...).
 function user_age() {
-    let age = prompt('Введите свой возраст');
+    let age = +prompt('Введите свой возраст', '30');
+
+    //Добавление переменной на проверку валидности введенных символов
+    let reg = /^[0-9]{1,3}$/;
+    let rez = reg.test(age);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+    while (rez == false || age === null || age === '' || age <= 0 || age >= 121) {        
+        age = +prompt('Введите свой возраст', '30');
+        rez = reg.test(age);    
+    }
 
 switch (true) {
     case age >= 0 && age <= 2:
@@ -16,14 +25,13 @@ switch (true) {
     case age >= 19 && age <= 60:
         alert ("Вы взрослый человек")
         break;
-    case age >= 61 && age <=110:
+    case age >= 61 && age <=100:
         alert ("Вы пенсионер")
         break;
-    case age >= 111:
+    case age >= 111 && age <=120:
         alert ("Столько не живут")
          break;
-    default:
-        alert ("Что-то пошло не так")
+    default:        
         break;
 };
 };
@@ -31,11 +39,20 @@ switch (true) {
 // Запросить у пользователя число от 0 до 9 и вывести ему спецсимвол, который расположен
 //  на этой клавише (1–!, 2–@, 3–# и т. д).
 function symbol() {
-    let key = prompt('Введите число от 0 до 9');
+    let key = +prompt('Введите число от 0 до 9', '0');
 
-switch (Number (key)) {
+    //Добавление переменной на проверку валидности введенных символов
+    let reg = /^[0-9]{1}$/;
+    let rez = reg.test(key);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+    while (rez == false || key === null || key === '') {        
+        key = +prompt('Введите число от 0 до 9', '0');
+        rez = reg.test(key);    
+    }
+
+    switch (key) {
         case 0:
-            alert (")")
+            alert ('(')
             break;
         case 1:
             alert ("!")
@@ -62,7 +79,7 @@ switch (Number (key)) {
             alert ("*")
             break;
         case 9:
-            alert ("(")
+            alert (')')
             break;  
         default:
             alert ("Что-то пошло не так")
@@ -73,49 +90,67 @@ switch (Number (key)) {
 
 // Запросить у пользователя трехзначное число и проверить, есть ли в нем одинаковые цифры.
 function threeNumber() {
-    let number = +prompt('Введите трехзначное число');
+    let number = +prompt('Введите трехзначное число', '100');
 
-numberThird = (number % 100) % 10;
-console.log(numberThird);
-numberSecond = Math.trunc((number % 100) / 10);
-console.log(numberSecond);
-numberFirst = Math.trunc(number / 100);
-console.log(numberFirst);
+    //Добавление переменной на проверку валидности введенных символов
+    let reg = /^[1-9][0-9][0-9]$/;
+    let rez = reg.test(number);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+    while (rez == false || number === null || number === '') {        
+        number = +prompt('Введите трехзначное число', '100');
+        rez = reg.test(number);    
+    }
 
-if (numberThird == numberSecond || numberFirst == numberSecond || numberThird == numberFirst) {
-    alert ("Здесь есть одинаковые цифры")
-} else {
-    alert ("Здесь нет одинаковых цифр")
-}
+    numberThird = (number % 100) % 10;
+    console.log(numberThird);
+    numberSecond = Math.trunc((number % 100) / 10);
+    console.log(numberSecond);
+    numberFirst = Math.trunc(number / 100);
+    console.log(numberFirst);
+    
+    if (numberThird == numberSecond || numberFirst == numberSecond || numberThird == numberFirst) {
+        alert ("Здесь есть одинаковые цифры")
+    } else {
+        alert ("Здесь нет одинаковых цифр")
+    }
 
-switch (true) {
-    case numberThird == numberSecond || numberFirst == numberSecond:
-        alert(`Одинаковые цифры: ${numberSecond}`)
-        break;
-    case numberFirst == numberSecond || numberThird == numberFirst:
-        alert(`Одинаковые цифры: ${numberFirst}`)
-        break;
-    case numberThird == numberSecond || numberThird == numberFirst:
-        alert(`Одинаковые цифры: ${numberThird}`)
-        break;
-    default:
-        //alert("Что-то пошло не так")
-        break;
+    switch (true) {
+        case numberThird == numberSecond || numberFirst == numberSecond:
+            alert(`Одинаковые цифры: ${numberSecond}`)
+            break;
+        case numberFirst == numberSecond || numberThird == numberFirst:
+            alert(`Одинаковые цифры: ${numberFirst}`)
+            break;
+        case numberThird == numberSecond || numberThird == numberFirst:
+            alert(`Одинаковые цифры: ${numberThird}`)
+            break;
+        default:
+            //alert("Что-то пошло не так")
+            break;
 };
 };
 
 // Запросить у пользователя год и проверить, високосный он или нет. 
 // Високосный год либо кратен 400, либо кратен 4 и при этом не кратен 100.
 function year() {
-    let year = +prompt("Укажите год");
+    let year = +prompt("Укажите год", '1987');
+
+    //Добавление переменной на проверку валидности введенных символов
+    let reg = /^[0-9]{1,4}$/;
+    let rez = reg.test(year);
+    //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+    while (rez == false || year === null || year === '') {        
+        year = +prompt("Укажите год", '1987');
+        rez = reg.test(year);    
+    }
 
 
-if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-    alert ("Год високосный");
-   
-} else {
-    alert ("Год не високосный");
-};
+    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        alert ("Год високосный");
+       
+    } else {
+        alert ("Год не високосный");
+    };
 };
 
 // Запросить у пользователя пятиразрядное число и определить, является ли оно палиндромом.
