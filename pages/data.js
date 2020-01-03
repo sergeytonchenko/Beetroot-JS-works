@@ -217,7 +217,7 @@ function currency() {
     );
 
     //Добавление переменной на проверку валидности введенных символов
-    let reg2 = /^EUR|UAN|AZN$/;
+    let reg2 = /^EUR$|^UAN$|^AZN$/;
     let rez2 = reg2.test(currency);
     //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, пустую строку
     while (rez2 == false || currency == null || currency == '') {        
@@ -342,35 +342,49 @@ function questions() {
     
 let questionOne = prompt("Назовите столицу Болгарии.", "София, Александрия, Лидия");
 //Добавление переменной на проверку валидности введенных символов
-let reg1 = /София|Александрия|Лидия/;
+let reg1 = /^София$|^Александрия$|^Лидия$/;
 let rez1 = reg1.test(questionOne);
 //Проверка на ввод данных: проверку валидности символов, нажатия Отмена, пустую строку
 while (rez1 == false || questionOne == null || questionOne == '') {        
     questionOne = prompt("Назовите столицу Болгарии.", "София, Александрия, Лидия");
     rez1 = reg1.test(questionOne);    
 }
-let questionTwo = prompt(`Как имя писателя Азимова.
-Варианты ответа: Борис, Айзек, Альберт`);
+let questionTwo = prompt("Как имя писателя Азимова?", "Борис, Айзек, Альберт");
+//Добавление переменной на проверку валидности введенных символов
+let reg2 = /^Борис$|^Айзек$|^Альберт$/;
+let rez2 = reg2.test(questionTwo);
+//Проверка на ввод данных: проверку валидности символов, нажатия Отмена, пустую строку
+while (rez2 == false || questionTwo == null || questionTwo == '') {        
+    questionTwo = prompt("Как имя писателя Азимова?", "Борис, Айзек, Альберт");
+    rez2 = reg2.test(questionTwo);   
+}
 
-let questionThree = prompt(`Какая из этих птиц летает?.
-Варианты ответа: Страус, Пингвин, Фламинго`);
+let questionThree = prompt("Какая из этих птиц летает?", "Страус, Пингвин, Фламинго");
+//Добавление переменной на проверку валидности введенных символов
+let reg3 = /^Страус$|^Пингвин$|^Фламинго$/;
+let rez3 = reg3.test(questionThree);
+//Проверка на ввод данных: проверку валидности символов, нажатия Отмена, пустую строку
+while (rez3 == false || questionThree == null || questionThree == '') {        
+    questionThree = prompt("Какая из этих птиц летает?", "Страус, Пингвин, Фламинго");
+    rez3 = reg3.test(questionThree);   
+}
 
 let point = 0;
 
 if (questionOne == 'София') {
-    point = point + 2;
+    point += 2;
 } else {
     point = 0;
 }
 console.log(point);
 if (questionTwo == 'Айзек') {
-    point = point + 2;
+    point += 2;
 } else {
     point = point;
 }
 console.log(point);
 if (questionThree == 'Фламинго') {
-    point = point + 2;
+    point += 2;
 } else {
     point = point;
 }
@@ -381,10 +395,35 @@ alert (`Сумма ваших набранных баллов равна, ${poin
 // Запросить дату (день, месяц, год) и вывести следующую за ней дату. 
 // Учтите возможность перехода на следующий месяц, год, а также високосный год.
 function date() {
-    let day = +prompt("Введите текущий день");
-let month = +prompt("Введите текущий месяц");
-let year = +prompt("Введите текущий год");
+let day = +prompt("Введите день", "2");
+//Добавление переменной на проверку валидности введенных символов
+let reg1 = /[\d]{1,2}/;
+let rez1 = reg1.test(day);
+//Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+while (rez1 == false || day == null || day == '' || day <= 0 || day > 31) {        
+    day1 = +prompt("Введите день", "2");
+    rez1 = reg1.test(day);    
+}
 
+let month = +prompt("Введите месяц", "1");
+//Добавление переменной на проверку валидности введенных символов
+let reg2 = /[\d]{1,2}/;
+let rez2 = reg2.test(month);
+//Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+while (rez2 == false || month == null || month == '' || month <= 0 || month > 12) {        
+    month = +prompt("Введите текущий месяц", "1");
+    rez2 = reg2.test(month);    
+}
+
+let year = +prompt("Введите год не ниже 1970", "2019");
+//Добавление переменной на проверку валидности введенных символов
+let reg3 = /[\d]{4}/;
+let rez3 = reg3.test(year);
+//Проверка на ввод данных: проверку валидности символов, нажатия Отмена, число не должно быть меньше или равно нулю
+while (rez3 == false || year == null || year == '' || year < 1970) {        
+    year = +prompt("Введите текущий год", "2019");
+    rez3 = reg3.test(year);    
+}
 let date = new Date(year, month = month - 1, day);
 
 
