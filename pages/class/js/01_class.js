@@ -37,6 +37,16 @@ let c = new Circle();
 //Устанавливаем новый радиус через свойство set
 function newRadius() {
   c.radius = +prompt ('Введите радиус');
+
+  let reg = /[0-9]/;
+  let rez = reg.test(c.radius); 
+  
+  //Проверка на ввод данных: проверку валидности символов, пустая строка, нажатия Отмена
+  while (rez == false || c.radius == null || c.radius == '') {        
+      c.radius = +prompt ('Введите радиус');
+      rez = reg.test(c.radius);
+  }
+
   document.getElementsByClassName("buf2")[0].innerHTML = c.diameter;
 }
 

@@ -25,7 +25,7 @@ class Marker {
   function countChar() {  
     let _markerQuatity = 400;
     let fill = document.getElementsByClassName("fill");
-    fill[0].style.height = `${_markerQuatity - (document.getElementById("textarea").value.replace(/ *n*r*t*/g, "").length * 2)}px`;
+    fill[0].style.height = `${_markerQuatity - (document.getElementById("textarea").value.replace(/[\s]/g, '').length * 2)}px`;
     let maxLength = document.getElementById("textarea");
     maxLength.setAttribute("maxlength", 200);
 };

@@ -39,6 +39,11 @@ function visiBlock() {
 function task() {
     let distance = document.getElementById("distance").value;
     let speed = document.getElementById("speed").value;
+
+    while (distance == '' || speed == '') {
+        alert('Заполните поле ввода');p
+    }
+
     let time;
     let time1 = (distance / speed);
     if (time1 <= 4) {
