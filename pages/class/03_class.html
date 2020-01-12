@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>03_сlasses</title>
+    <style>        
+        .main {
+            text-decoration: none;
+        }
+        table {
+            margin-top: 20px;
+            border-collapse: collapse; 
+            border: 3px solid grey;
+            width: 500px;
+            height: 250px;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid black;            
+        } 
+        th {            
+            font-size: 25px;
+            background-color: cornflowerblue;
+        }
+        td {            
+            font-size: 20px;
+            background-color: gainsboro;
+        }        
+    </style>
 </head>
 <body>
-    
+    <button onclick="bank()">Показать сотрудников банка</button>
+    <button><a class="main" href="../class_main.html">Назад</a></button>
+    <div id="bank"></div>
+    <script src="./js/03_class.js"></script>
 </body>
 </html>
