@@ -41,7 +41,8 @@ function task() {
     let speed = document.getElementById("speed").value;
 
     while (distance == '' || speed == '') {
-        alert('Заполните поле ввода');p
+        alert('Заполните поле ввода');
+        break;
     }
 
     let time;
