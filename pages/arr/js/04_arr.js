@@ -26,7 +26,7 @@ let room = [
     {
         name: '221',
         site: 14,      
-        faculty: 'JS'
+        faculty: 'react'
     }
 ];
 // Вывод на экран всех аудиторий;
@@ -50,36 +50,23 @@ function printArr(_room) {
 // Вывод на экран аудиторий для указанного факультета;
 function audFacul(_room) {
     let auditFacult = prompt('Введите название факультета', 'front-end');
-    let tag = '<ul>';
-    let buf1;
-    let flag = false;
-    //console.log(_room[0].faculty.toUpperCase());
+    let tag = '<p>Аудитории для Вашего факультета:</p><ul>';
+    let tag2 = '<p>Такого факультета не существует</p>';
+    let arr = [];  
     
-    for (const key in _room) {
-        console.log(_room[key].faculty.toUpperCase());
-        if (auditFacult.toLowerCase() == _room[key].faculty.toLowerCase()) {
-            if (typeof _room[key] == 'object') {
-                let values = Object.values(_room[key]);
-                let keys = Object.keys(_room[key]);
-                for (let i = 0; i < keys.length; i++) {
-                    tag += `<li><span style="color: green;">${keys[i]}: </span>${values[i]};<br/></li>`;
-                }
-                buf1 = `Аудитории для факультета <span style="color: red;">${auditFacult.toUpperCase ()}:</span><br/> ${tag}`;
-            } else {
-                if (!flag) {
-                    buf1 = 'Такой факультет отсутствует';
-                    flag = !flag;
-                }
-            }
-        } else {
-            if (!flag) {
-                buf1 = 'Такой факультет отсутствует';
-                flag = !flag;
-            }
-        }
+    for (const key in _room) {        
+        if (auditFacult.toLowerCase() == _room[key].faculty) {
+            arr.push(_room[key].faculty);
+            tag += `<li>Аудитория №<span style="color: green;">
+                    ${_room[key].name}</span>, количество мест ${_room[key].site}<br/></li>`;            
+        } 
     }
-    tag += '</ul>';
-    document.getElementsByClassName("sum")[0].innerHTML = buf1;
+    if (arr.length == 0) {
+        document.querySelector('.sum').innerHTML = tag2;
+    } else {
+        tag += '</ul>';
+        document.querySelector('.sum').innerHTML = tag; 
+    }    
 };
 
 // // Функция сортировки аудиторий по названию (по алфавиту).
@@ -105,8 +92,7 @@ function sortSite(_room) {
     printArr(room);
 };
 
-// Вывод на экран только тех аудиторий, которые подходят для переданной группы. Объект-группа состоит из названия,
-// количества студентов и названия факультета;
+// Вывод на экран только тех аудиторий, которые подходят для переданной группы. 
 function siteStud(_room) {
     let groupFacult = prompt('Введите название факультета');
     let siteGroup = +prompt('Введите количество студентов');
