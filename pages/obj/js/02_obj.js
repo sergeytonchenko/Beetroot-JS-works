@@ -20,12 +20,36 @@ let fractionTwo = {
 
 
 function infoFraction(_fractionOne, _fractionTwo) {
-    let fraction1 = `<li><span style="color: green;">Первая дробь </span>= ${_fractionOne.numerator}/${_fractionOne.denominator};</li><br/>`;
-    let fraction2 = `<li><span style="color: green;">Вторая дробь </span>= ${_fractionTwo.numerator}/${_fractionTwo.denominator};</li><br/>`;
-    let sumFraction = `<li><span style="color: green;">Сложение дробей </span>= ${((_fractionOne.numerator * _fractionTwo.denominator) + (_fractionTwo.numerator * _fractionOne.denominator)) / (_fractionTwo.denominator * _fractionOne.denominator)};</li><br/>`;
-    let difFraction = `<li><span style="color: green;">Вычитание дробей </span>= ${((_fractionOne.numerator * _fractionTwo.denominator) - (_fractionTwo.numerator * _fractionOne.denominator)) / (_fractionTwo.denominator * _fractionOne.denominator)};</li><br/>`;
-    let multFraction = `<li><span style="color: green;">Умножение дробей </span>= ${(_fractionOne.numerator * _fractionTwo.numerator) / (_fractionTwo.denominator * _fractionOne.denominator)};</li><br/>`;
-    let divFraction = `<li><span style="color: green;">Деление дробей </span>= ${(_fractionOne.numerator * _fractionTwo.denominator) / (_fractionTwo.numerator * _fractionOne.denominator)};</li><br/>`;
+    //Вывод первой дроби
+    let fraction1 = `<li><span style="color: green;">Первая дробь
+                     </span>= ${_fractionOne.numerator}/${_fractionOne.denominator};
+                     </li><br/>`;
+    //Вывод второй дроби
+    let fraction2 = `<li><span style="color: green;">Вторая дробь
+                     </span>= ${_fractionTwo.numerator}/${_fractionTwo.denominator};
+                     </li><br/>`;
+    //Сложение дробей
+    let sumFraction = `<li><span style="color: green;">Сложение дробей 
+                       </span>= ${((_fractionOne.numerator * _fractionTwo.denominator)
+                       + (_fractionTwo.numerator * _fractionOne.denominator))
+                       / (_fractionTwo.denominator * _fractionOne.denominator)};
+                       </li><br/>`;
+    //Вычитание дробей
+    let difFraction = `<li><span style="color: green;">Вычитание дробей
+                       </span>= ${((_fractionOne.numerator * _fractionTwo.denominator)
+                       - (_fractionTwo.numerator * _fractionOne.denominator))
+                       / (_fractionTwo.denominator * _fractionOne.denominator)};
+                       </li><br/>`;
+    //Умножение дробей
+    let multFraction = `<li><span style="color: green;">Умножение дробей
+                       </span>= ${(_fractionOne.numerator * _fractionTwo.numerator)
+                       / (_fractionTwo.denominator * _fractionOne.denominator)};
+                       </li><br/>`;
+    //Деление дробей
+    let divFraction = `<li><span style="color: green;">Деление дробей
+                       </span>= ${(_fractionOne.numerator * _fractionTwo.denominator)
+                       / (_fractionTwo.numerator * _fractionOne.denominator)};
+                       </li><br/>`;
     //Сокращение первой дроби
     let dif1;
     let dif2;
@@ -46,7 +70,7 @@ function infoFraction(_fractionOne, _fractionTwo) {
             }
         reduction = `<li><span style="color: green;">Первую дробь можно переписать на </span>= ${_fractionOne.numerator / difMax}/${_fractionOne.denominator / difMax};</li><br/>`;
     //вывод результатов   
-    document.getElementsByClassName("fraction")[0].innerHTML = `${fraction1} ${fraction2}
+    document.querySelector('.fraction').innerHTML = `${fraction1} ${fraction2}
      ${sumFraction} ${difFraction} ${multFraction} ${divFraction} ${reduction}`;
 }
 infoFraction(fractionOne, fractionTwo);

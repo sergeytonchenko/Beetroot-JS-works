@@ -1,4 +1,5 @@
-// 3. Создать объект, описывающий время (часы, минуты, секунды), и следующие функции для работы с этим объектом: 
+// 3. Создать объект, описывающий время (часы, минуты, секунды),
+// и следующие функции для работы с этим объектом: 
 // Функция вывода времени на экран;
 // Функция изменения времени на переданное количество секунд;
 // Функция изменения времени на переданное количество минут;
@@ -23,7 +24,7 @@ function getDate(_date) {
 
     let time = _date.hours + ':' + _date.minutes + ':' + _date.seconds;
 
-    document.getElementsByClassName("time")[0].innerHTML = time;    
+    document.querySelector('.time').innerHTML = time;    
     
 }
 
@@ -59,7 +60,7 @@ function shiftSecond(_date) {
     } else {
         resSec =  hh1 + ':' + mm1 + ':' + ss1;
     }
-    document.getElementsByClassName("time")[0].innerHTML = resSec;
+    document.querySelector('.time').innerHTML = resSec;
         
 }
 
@@ -91,7 +92,7 @@ function shiftMinutes(_date) {
     } else {
         resMin =  hh2 + ':' + mm2 + ':' + _date.seconds;
     }   
-    document.getElementsByClassName("time")[0].innerHTML = resMin;
+    document.querySelector('.time').innerHTML = resMin;
     
 }
 
@@ -113,6 +114,6 @@ function shiftHours(_date) {
     } else {
         resHour =  hh3 + ':' + _date.minutes + ':' + _date.seconds;
     }   
-    document.getElementsByClassName("time")[0].innerHTML = resHour;
+    document.querySelector('.time').innerHTML = resHour;
     
 }

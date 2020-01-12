@@ -27,18 +27,18 @@ function printText(_car) {
         
 };
 function blurCar() {
-    let blur = document.getElementsByClassName("car");
-    blur[0].style.filter = 'none';
+    let blur = document.querySelector('.car');
+    blur.style.filter = 'none';
     
 };
 function visiBlock() {
-    let visi = document.getElementsByClassName("info__block");
-    visi[0].style.visibility = 'visible';
+    let visi = document.querySelector('.info__block');
+    visi.style.visibility = 'visible';
     
 };
 function task() {
-    let distance = document.getElementById("distance").value;
-    let speed = document.getElementById("speed").value;
+    let distance = document.getElementById('distance').value;
+    let speed = document.getElementById('speed').value;
 
     while (distance == '' || speed == '') {
         alert('Заполните поле ввода');
@@ -53,11 +53,11 @@ function task() {
         time = ((time1 / 4) - 1) + time1;
     }
     
-    document.getElementsByClassName("time")[0].innerHTML = `Затраченное время: ${time.toFixed(2)} ч.`;    
+    document.querySelector('.time').innerHTML = `Затраченное время: ${time.toFixed(2)} ч.`;    
 };
 function dontDrink() {
-    let drink = document.getElementsByClassName("drink");
-    drink[0].style.visibility = 'visible';
+    let drink = document.querySelector('.drink');
+    drink.style.visibility = 'visible';
 }
 
 

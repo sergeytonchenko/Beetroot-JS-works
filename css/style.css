@@ -26,9 +26,9 @@ body {
 .btn {
     height: 50px;
     width: 150px;
+    cursor: pointer;
 }
 .btn__link {
     text-decoration: none;
-    color: rgb(0, 0, 0);
-    
+    color: rgb(0, 0, 0);   
 }
