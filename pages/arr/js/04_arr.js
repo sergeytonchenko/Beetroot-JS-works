@@ -50,6 +50,11 @@ function printArr(_room) {
 // Вывод на экран аудиторий для указанного факультета;
 function audFacul(_room) {
     let auditFacult = prompt('Введите название факультета', 'front-end');
+    //Проверка на ввод данных
+    while (auditFacult == null || auditFacult == '') {        
+        auditFacult = prompt('Введите название факультета', 'front-end');           
+    }
+    
     let tag = '<p>Аудитории для Вашего факультета:</p><ul>';
     let tag2 = '<p>Такого факультета не существует</p>';
     let arr = [];  
@@ -94,34 +99,39 @@ function sortSite(_room) {
 
 // Вывод на экран только тех аудиторий, которые подходят для переданной группы. 
 function siteStud(_room) {
-    let groupFacult = prompt('Введите название факультета');
-    let siteGroup = +prompt('Введите количество студентов');
-    let tag = '<ul>';
-    let buf1;
-    let flag = false;
-    for (const key in _room) {
-        if (groupFacult.toLowerCase () == _room[key].faculty.toLowerCase () && siteGroup <= _room[key].site) {
-            if (typeof _room[key] == 'object') {
-                let values = Object.values(_room[key]);
-                let keys = Object.keys(_room[key]);
-                for (let i = 0; i < keys.length; i++) {
-                    tag += `<li><span style="color: green;">${keys[i]}: </span>${values[i]};<br/></li>`;
-                }
-                buf1 = `Вашей группе подходит аудитория: <br/> ${tag}`;
-            } else {
-                if (!flag) {
-                    buf1 = '';
-                    flag = !flag;
-                }
-            }
-        } else {
-            if (!flag) {
-                buf1 = 'Такой факультет отсутствует';
-                flag = !flag;
-            }
-        }
+    let auditFacult = prompt('Введите название факультета', 'front-end');    
+    //Проверка на ввод данных
+    while (auditFacult == null || auditFacult == '') {        
+        auditFacult = prompt('Введите название факультета', 'front-end');           
     }
-    tag += '</ul>';
-    document.getElementsByClassName("site")[0].innerHTML = buf1;
-};
+
+    let numberStudents = +prompt('Количество студентов', '10');
+
+    let reg = /[0-9]/;
+    let rez = reg.test(numberStudents);
+    //Проверка на ввод данных
+    while (rez == false || numberStudents == null || numberStudents == '' || numberStudents <= 0 ) {        
+        numberStudents = +prompt('Количество студентов', '10');
+        rez = reg.test(numberStudents);    
+    }
+
+    let tag = '<p>Для Вашей группы подходят следующие аудитории:</p><ul>';
+    let tag2 = '<p>Подходящей аудитории нет</p>';
+    let arr = [];  
+    
+    for (const key in _room) {        
+        if (auditFacult.toLowerCase() == _room[key].faculty && numberStudents <= _room[key].site) {
+            arr.push(_room[key].faculty);
+            tag += `<li>Аудитория №<span style="color: green;">
+                    ${_room[key].name}</span>, количество мест ${_room[key].site}<br/></li>`;            
+        } 
+    }
+    if (arr.length == 0) {
+        document.querySelector('.sum').innerHTML = tag2;
+    } else {
+        tag += '</ul>';
+        document.querySelector('.sum').innerHTML = tag; 
+    }    
+}
+
 
