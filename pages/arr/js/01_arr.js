@@ -23,15 +23,16 @@ let arr = [
         buy: 'Не куплен'
     }
 ]
-// Вывод всего списка на экран таким образом, чтобы сначала шли некупленные продукты, а потом – купленные.
+// Вывод всего списка на экран таким образом, чтобы сначала шли некупленные продукты,
+// а потом – купленные.
 function printArr(_arr) { 
     //Сортировка массива
     _arr.sort(function (a, b) {
         if (a.buy > b.buy) {
-          return 1;
+          return -1;
         }
         if (a.buy < b.buy) {
-          return -1;
+          return 1;
         }
         return 0;
       });
@@ -48,47 +49,76 @@ function printArr(_arr) {
         }
     }
     tag += '</ul>';
-    document.getElementsByClassName("list")[0].innerHTML = tag;
-    
+    document.querySelector('.list').innerHTML = tag;  
        
 }
 
-// Добавление покупки в список. Учтите, что при добавлении покупки с уже существующим в списке продуктом,
-// необходимо увеличивать количество в существующей покупке, а не добавлять новую.
+// Добавление покупки в список. Учтите, что при добавлении покупки с уже существующим
+// в списке продуктом, необходимо увеличивать количество в существующей покупке,
+// а не добавлять новую.
 function addArr(_arr) {
-    let purchase = prompt('Добавьте покупку в список покупок');
-    let how = +prompt('Введите колличество товара');
-    let flag = false;
+    let purchase = prompt('Добавьте покупку в список покупок', 'bacon');
 
+    let reg1 = /[a-zA-Zа-яА-я]/;
+    let rez1 = reg1.test(purchase);
+    //Проверка на ввод данных
+    while (rez1 == false || purchase == null || purchase == '') {        
+        purchase = prompt('Добавьте покупку в список покупок', 'bacon');
+        rez1 = reg1.test(purchase);    
+    }
+
+    let how = +prompt('Введите количество товара', '5');
+
+    let reg2 = /[0-9]/;
+    let rez2 = reg2.test(how);
+    //Проверка на ввод данных
+    while (rez2 == false || how == null || how == '' || how <= 0 ) {        
+        how = +prompt('Введите количество товара', '5');
+        rez2 = reg2.test(how);    
+    }    
+    let i = [];
     let newBuy = {
         name: purchase,
         number: how,
         buy: 'Куплен'
     }
-    
+
     for (const key in _arr) {
         if (_arr[key].name.includes(purchase.toLowerCase())) {
             _arr[key].buy = 'Куплен';
             _arr[key].number += how;
-        } if (!flag) {
-            _arr.push(newBuy);
-            flag = !flag;
-        } else {
-            if (!flag) {
-                _arr.push(newBuy);
-                flag = !flag;
-            }
+            i.push(1);
         }
     }
+    if (i.length == 0) {
+        arr.push(newBuy);
+    }
+    
     printArr(arr);
 }
 
 // Покупка продукта. Функция принимает название продукта и отмечает его как купленный.
 function byArr(_arr) {
-    let purchase = prompt('Добавьте товар в список покупок');
+    let purchase = prompt(`Какой товар Вы купили?
+    milk;
+    bacon;
+    egg;
+    broad`, 'bacon');
     
+    let reg1 = /(bacon)|(milk)|(egg)|(broad)/;
+    let rez1 = reg1.test(purchase.toLocaleLowerCase());
+    //Проверка на ввод данных
+    while (rez1 == false || purchase == null || purchase == '') {
+        alert('Введите правильное название продукта');
+        purchase = prompt(`Какой товар Вы купили?
+        milk;
+        bacon;
+        egg;
+        broad`, 'bacon');
+        rez1 = reg1.test(purchase.toLocaleLowerCase());    
+    }
     for (const key in _arr) {
-        if (_arr[key].name.includes(purchase.toLowerCase ())) {
+        if (_arr[key].name.includes(purchase.toLowerCase())) {
             _arr[key].buy = 'Куплен';
             _arr[key].number += 1;
         }
