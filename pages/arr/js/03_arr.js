@@ -1,5 +1,6 @@
 // 3. Создать массив CSS-стилей (цвет, размер шрифта, выравнивание, подчеркивание и т. д.).
-// Каждый элемент массива – это объект, состоящий из двух свойств: название стиля и значение стиля.
+// Каждый элемент массива – это объект, состоящий из двух свойств: название стиля и 
+//значение стиля.
 // Написать функцию, которая принимает массив стилей и текст, и выводит этот текст с помощью 
 // document.write() в тегах <p></p>, добавив в открывающий тег атрибут style со всеми стилями,
 // перечисленными в массиве.
@@ -23,7 +24,7 @@ let styles = [
 ];
 
 function textStyle(_styles) {
-    let textNo = document.getElementById("textOn").value;
+    let textNo = document.querySelector('.textOn').value;
 
     let text = '<ul>';
 
@@ -37,7 +38,7 @@ function textStyle(_styles) {
     
     text += '</ul>';    
     }
-    document.getElementsByClassName("styleText")[0].innerHTML = text;
+    document.querySelector('.styleText').innerHTML = text;
 }
 
 

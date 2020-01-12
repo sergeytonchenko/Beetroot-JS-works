@@ -1,4 +1,5 @@
-// 2. Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, 
+// 2. Создать массив, описывающий чек в магазине. 
+//Каждый элемент массива состоит из названия товара, 
 // количества и цены за единицу товара. Написать следующие функции:
 let check = [
     {
@@ -40,7 +41,7 @@ function printCheck(_check) {
         }
     }
     tag += '</ul>';
-    document.getElementsByClassName("list")[0].innerHTML = tag;
+    document.querySelector('.list').innerHTML = tag;
 }
 // Подсчет общей суммы покупки;
 function sum(_check) {
@@ -48,7 +49,7 @@ function sum(_check) {
     for (let i = 0; i < _check.length; i++) {
         sum = sum + (_check[i].price * _check[i].number);
     }
-    document.getElementsByClassName("sum")[0].innerHTML = `Общая сумма покупки составила: ${sum};<br/>`;
+    document.querySelector('.sum').innerHTML = `Общая сумма покупки составила: ${sum};<br/>`;
 }
 
 // Получение самой дорогой покупки в чеке;
@@ -62,7 +63,7 @@ function costly(_check) {
         }
         return 0;
       });    
-      document.getElementsByClassName("costly")[0].innerHTML = `Самый дорогостоящий товар в чеке: ${_check[0].price};<br/>`;  
+      document.querySelector('.costly').innerHTML = `Самый дорогостоящий товар в чеке: ${_check[0].name};<br/>`;  
 }
 
 // Подсчет средней стоимости одного товара в чеке.
@@ -71,5 +72,5 @@ function averageCost(_check) {
     for (let i = 0; i < _check.length; i++) {
         sum = sum + _check[i].price;
     }
-    document.getElementsByClassName("averageCost")[0].innerHTML = `Средняя стоимость товара в чеке: ${sum / _check.length};<br/>`;
+    document.querySelector('.averageCost').innerHTML = `Средняя стоимость товара в чеке: ${sum / _check.length};<br/>`;
 }
