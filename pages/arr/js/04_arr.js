@@ -1,5 +1,6 @@
 // 4. Создать массив аудиторий академии. Объект-аудитория состоит из названия,
-// количества посадочных мест (от 10 до 20) и названия факультета, для которого она предназначена.
+// количества посадочных мест (от 10 до 20) и названия факультета, 
+// для которого она предназначена.
 // Написать несколько функций для работы с ним.
 let room = [
     {
@@ -43,17 +44,20 @@ function printArr(_room) {
         }
     }
     tag += '</ul>'
-    document.getElementsByClassName("list")[0].innerHTML = tag;    
+    document.querySelector('.list').innerHTML = tag;    
 };
 
 // Вывод на экран аудиторий для указанного факультета;
 function audFacul(_room) {
-    let auditFacult = prompt('Введите название факультета');
+    let auditFacult = prompt('Введите название факультета', 'front-end');
     let tag = '<ul>';
     let buf1;
     let flag = false;
+    //console.log(_room[0].faculty.toUpperCase());
+    
     for (const key in _room) {
-        if (auditFacult.toLowerCase () == _room[key].faculty.toLowerCase ()) {
+        console.log(_room[key].faculty.toUpperCase());
+        if (auditFacult.toLowerCase() == _room[key].faculty.toLowerCase()) {
             if (typeof _room[key] == 'object') {
                 let values = Object.values(_room[key]);
                 let keys = Object.keys(_room[key]);

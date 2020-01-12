@@ -26,7 +26,10 @@ let styles = [
 function textStyle(_styles) {
     let textNo = document.querySelector('.textOn').value;
 
-    let text = '<ul>';
+    if (textNo == '') {
+        alert('Введите текст');
+    } else {
+        let text = '<ul>';
 
     for (const key in _styles) {
     let values = Object.values(_styles[key]);
@@ -39,6 +42,7 @@ function textStyle(_styles) {
     text += '</ul>';    
     }
     document.querySelector('.styleText').innerHTML = text;
+    }     
 }
 
 
