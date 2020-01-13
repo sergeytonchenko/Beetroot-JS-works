@@ -1,7 +1,7 @@
 //Функция валидации;
 function validNumber(_param, _question) {
 
-    let reg = /\d{1,7}/;
+    let reg = /^[0-9]{1,20}$/;
     let rez = reg.test(_param);
     
     while (rez == false || _param == null || _param == '') {        
@@ -35,7 +35,6 @@ function checkNumber() {
 }
 
 // Написать функцию, которая вычисляет факториал переданного ей числа.
-
 function calcFactorial() {
 
     let _question = 'Введите число';
@@ -53,11 +52,32 @@ function calcFactorial() {
 // Например: цифры 1, 4, 9 превратятся в число 149.
 
 function checkNumber4() {
-    let numberOne = prompt('Введите первое число');
 
-let numberTwo = prompt('Введите второе число');
+    function validNumber2(_param, _question) {
 
-let numberThree = prompt('Введите третье число');
+        let reg = /^[0-9]{1}$/;
+        let rez = reg.test(_param);
+        
+        while (rez == false || _param == null || _param == '' || _param > 9) {        
+            _param = +prompt(_question, '1');
+            rez = reg.test(_param);        
+        }
+        let a = new String(_param);
+        return a;
+    }
+
+    let _question1 = 'Введите первую цифру';
+    let _variableOne = +prompt(_question1, '1');
+    let numberOne = validNumber2(_variableOne, _question1);
+
+    let _question2 = 'Введите вторую цифру';
+    let _variableTwo = +prompt(_question2, '1');
+    let numberTwo = validNumber2(_variableTwo, _question2);
+
+    let _question3 = 'Введите третью цифру';
+    let _variableThree = +prompt(_question3, '1');
+    let numberThree = validNumber2(_variableThree, _question3);
+
     alert (numberOne + numberTwo + numberThree);
   }
 
@@ -66,9 +86,21 @@ let numberThree = prompt('Введите третье число');
 
 
 function calcSquare() {
-    let sideA = +prompt('Введите сторону А');
 
-let sideB = +prompt('Введите сторону В');
+    let _question1 = 'Введите сторону А';
+    let _variableOne = +prompt(_question1, '10');
+    let sideA = validNumber(_variableOne, _question1);
+    
+    let sideB = +prompt('Введите сторону В', '');
+
+    let reg1 = /^[0-9]{1}$/;
+    let rez1 = reg1.test(sideB);
+        
+    while (rez1 == false || sideB == null) {        
+        sideB = +prompt('Введите сторону В', '');
+        rez1 = reg1.test(sideB);        
+    }
+
     if (sideA == 0) {
         sgua = sideB * sideB;
     } else if (sideB == 0) {
@@ -83,7 +115,11 @@ let sideB = +prompt('Введите сторону В');
 // Совершенное число – это число, равное сумме всех своих собственных делителей.
 
 function checkNumber1() {
-    let num = +prompt(`Введите число`);
+    
+    let _question1 = 'Введите число';
+    let _variableOne = +prompt(_question1, '16');
+    let num = validNumber(_variableOne, _question1);
+
     b = num;
     d = 0;
 
