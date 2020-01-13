@@ -1,13 +1,29 @@
+//Функция валидации;
+function validNumber(_param, _question) {
+
+    let reg = /\d{1,7}/;
+    let rez = reg.test(_param);
+    
+    while (rez == false || _param == null || _param == '') {        
+        _param = +prompt(_question, '10');
+        rez = reg.test(_param);        
+    }
+    return _param;
+}
+
 // Написать функцию, которая принимает 2 числа и 
 // возвращает -1, если первое меньше, чем второе; 1 – 
 // если первое больше, чем второе; и 0 – если числа 
 // равны.
-
 function checkNumber() {
-    let numberOne = +prompt('Введите первое число');
+    
+    let _question1 = 'Введите первое число';
+    let _variableOne = +prompt(_question1, '10');
+    let numberOne = validNumber(_variableOne, _question1);    
 
-    let numberTwo = +prompt('Введите второе число');
-
+    let _question2 = 'Введите второе число';
+    let _variableTwo = +prompt(_question2, '10');
+    let numberTwo = validNumber(_variableTwo, _question2);
 
     if (numberOne == numberTwo) {
       alert (0);
@@ -21,7 +37,11 @@ function checkNumber() {
 // Написать функцию, которая вычисляет факториал переданного ей числа.
 
 function calcFactorial() {
-    let number = +prompt('Введите число');
+
+    let _question = 'Введите число';
+    let _variable = +prompt(_question, '10');
+    let number = validNumber(_variable, _question);
+
     result = 1;
     while (number >= 1) {
     result *= number--;        
@@ -32,7 +52,7 @@ function calcFactorial() {
 // Написать функцию, которая принимает три отдельные цифры и превращает их в одно число.
 // Например: цифры 1, 4, 9 превратятся в число 149.
 
-function checkNumber() {
+function checkNumber4() {
     let numberOne = prompt('Введите первое число');
 
 let numberTwo = prompt('Введите второе число');
