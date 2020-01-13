@@ -142,12 +142,20 @@ function checkNumber1() {
 // Используйте написанную ранее функцию, чтобы узнавать, совершенное число или нет.
 
 function checkNumber2() {
-    let firstNumber = +prompt(`Введите первое число диапазона`);
 
-let secondNumber = +prompt(`Введите второе число диапазона`);
+    let _question1 = 'Введите первое число диапазона';
+    let _variableOne = +prompt(_question1, '1');
+    let firstNumber = validNumber(_variableOne, _question1);    
+
+    let _question2 = 'Введите второе число диапазона';
+    let _variableTwo = +prompt(_question2, '100');
+    let secondNumber = validNumber(_variableTwo, _question2);  
+
+    let a, b, c, d;
+    let arr = [];
 
     while (firstNumber <= secondNumber) {
-        sum = firstNumber;
+        sum = firstNumber;        
         b = sum;
         d = 0;
         while (sum > 0) {
@@ -159,12 +167,11 @@ let secondNumber = +prompt(`Введите второе число диапаз�
             }
         }
         if (d == b) {
-            alert(d);
+            arr.push(d);
         }
-
         firstNumber++;
-
     }
+    alert(arr);
 
 }
 // Написать функцию, которая принимает время (часы, минуты, секунды) и выводит его на экран в формат
