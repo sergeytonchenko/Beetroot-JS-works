@@ -16,7 +16,9 @@ let buttonsOper = document.querySelectorAll('.operation');
 
 for (let a = 0; a < buttonsOper.length; a++) {
   buttonsOper[a].addEventListener('click', function () {
-    text.innerText.includes(this.textContent) ? text.innerText = eval(text.innerText) : text.innerText += this.textContent;         
+      text.innerText.includes('+') || text.innerText.includes('-') ||
+      text.innerText.includes('*') || text.innerText.includes('/') ?
+      text.innerText = `${eval(text.innerText)}${this.textContent}` : text.innerText += this.textContent;         
     })    
 };
 
@@ -81,7 +83,7 @@ document.addEventListener('keydown', function(event) {
               text.innerText = '0';
                 break;            
             case 107:
-                  text.innerText += '+';
+             text.innerText += '+';            
                 break;
             case 106:
                   text.innerText += '*';
@@ -93,6 +95,9 @@ document.addEventListener('keydown', function(event) {
             case 111:
             case 191:
                   text.innerText += '/';
+                break;
+            case 67:
+                  text.innerText = '0';
                 break;
             default:
               ;
@@ -143,20 +148,27 @@ document.addEventListener('keydown', function(event) {
             case 187:
                 text.innerText = eval(text.innerText);
               break;            
-            case 107:
-                text.innerText += '+';
+            case 107:            
+            text.innerText.includes('+') || text.innerText.includes('-') ||
+            text.innerText.includes('*') || text.innerText.includes('/') ? text.innerText = `${eval(text.innerText)}+` : text.innerText += '+';
               break;
             case 106:
-                text.innerText += '*';
+              text.innerText.includes('+') || text.innerText.includes('-') ||
+              text.innerText.includes('*') || text.innerText.includes('/') ? text.innerText = `${eval(text.innerText)}*` : text.innerText += '*';
               break;
             case 109:
             case 189:
-                text.innerText += '-';
+              text.innerText.includes('+') || text.innerText.includes('-') ||
+              text.innerText.includes('*') || text.innerText.includes('/') ? text.innerText = `${eval(text.innerText)}-` : text.innerText += '-';
               break;
             case 111:
             case 191:
-                text.innerText += '/';
+              text.innerText.includes('+') || text.innerText.includes('-') ||
+              text.innerText.includes('*') || text.innerText.includes('/') ? text.innerText = `${eval(text.innerText)}/` : text.innerText += '/';
               break;
+            case 67:
+            text.innerText = '0';
+            break;
             default:
               ;
           }
