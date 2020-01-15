@@ -15,8 +15,8 @@ for (let i = 0; i < buttons.length; i++) {
 let buttonsOper = document.querySelectorAll('.operation');
 
 for (let a = 0; a < buttonsOper.length; a++) {
-    buttonsOper[a].addEventListener('click', function () {
-        text.innerText += this.textContent;
+  buttonsOper[a].addEventListener('click', function () {
+    text.innerText.includes(this.textContent) ? text.innerText = eval(text.innerText) : text.innerText += this.textContent;         
     })    
 };
 
