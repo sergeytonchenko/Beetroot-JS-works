@@ -1,13 +1,29 @@
+//Функция валидации;
+function validNumber(_param, _question) {
+
+    let reg = /^[0-9]{1,20}$/;
+    let rez = reg.test(_param);
+    
+    while (rez == false || _param == null || _param == '') {        
+        _param = +prompt(_question, '10');
+        rez = reg.test(_param);        
+    }
+    return _param;
+}
+
 // Написать функцию, которая принимает 2 числа и 
 // возвращает -1, если первое меньше, чем второе; 1 – 
 // если первое больше, чем второе; и 0 – если числа 
 // равны.
-
 function checkNumber() {
-    let numberOne = +prompt('Введите первое число');
+    
+    let _question1 = 'Введите первое число';
+    let _variableOne = +prompt(_question1, '10');
+    let numberOne = validNumber(_variableOne, _question1);    
 
-    let numberTwo = +prompt('Введите второе число');
-
+    let _question2 = 'Введите второе число';
+    let _variableTwo = +prompt(_question2, '10');
+    let numberTwo = validNumber(_variableTwo, _question2);
 
     if (numberOne == numberTwo) {
       alert (0);
@@ -19,9 +35,12 @@ function checkNumber() {
 }
 
 // Написать функцию, которая вычисляет факториал переданного ей числа.
-
 function calcFactorial() {
-    let number = +prompt('Введите число');
+
+    let _question = 'Введите число';
+    let _variable = +prompt(_question, '10');
+    let number = validNumber(_variable, _question);
+
     result = 1;
     while (number >= 1) {
     result *= number--;        
@@ -32,12 +51,33 @@ function calcFactorial() {
 // Написать функцию, которая принимает три отдельные цифры и превращает их в одно число.
 // Например: цифры 1, 4, 9 превратятся в число 149.
 
-function checkNumber() {
-    let numberOne = prompt('Введите первое число');
+function checkNumber4() {
 
-let numberTwo = prompt('Введите второе число');
+    function validNumber2(_param, _question) {
 
-let numberThree = prompt('Введите третье число');
+        let reg = /^[0-9]{1}$/;
+        let rez = reg.test(_param);
+        
+        while (rez == false || _param == null || _param == '' || _param > 9) {        
+            _param = +prompt(_question, '1');
+            rez = reg.test(_param);        
+        }
+        let a = new String(_param);
+        return a;
+    }
+
+    let _question1 = 'Введите первую цифру';
+    let _variableOne = +prompt(_question1, '1');
+    let numberOne = validNumber2(_variableOne, _question1);
+
+    let _question2 = 'Введите вторую цифру';
+    let _variableTwo = +prompt(_question2, '1');
+    let numberTwo = validNumber2(_variableTwo, _question2);
+
+    let _question3 = 'Введите третью цифру';
+    let _variableThree = +prompt(_question3, '1');
+    let numberThree = validNumber2(_variableThree, _question3);
+
     alert (numberOne + numberTwo + numberThree);
   }
 
@@ -46,9 +86,21 @@ let numberThree = prompt('Введите третье число');
 
 
 function calcSquare() {
-    let sideA = +prompt('Введите сторону А');
 
-let sideB = +prompt('Введите сторону В');
+    let _question1 = 'Введите сторону А';
+    let _variableOne = +prompt(_question1, '10');
+    let sideA = validNumber(_variableOne, _question1);
+    
+    let sideB = +prompt('Введите сторону В', '');
+
+    let reg1 = /^[0-9]{1}$/;
+    let rez1 = reg1.test(sideB);
+        
+    while (rez1 == false || sideB == null) {        
+        sideB = +prompt('Введите сторону В', '');
+        rez1 = reg1.test(sideB);        
+    }
+
     if (sideA == 0) {
         sgua = sideB * sideB;
     } else if (sideB == 0) {
@@ -63,7 +115,11 @@ let sideB = +prompt('Введите сторону В');
 // Совершенное число – это число, равное сумме всех своих собственных делителей.
 
 function checkNumber1() {
-    let num = +prompt(`Введите число`);
+    
+    let _question1 = 'Введите число';
+    let _variableOne = +prompt(_question1, '16');
+    let num = validNumber(_variableOne, _question1);
+
     b = num;
     d = 0;
 
@@ -86,12 +142,20 @@ function checkNumber1() {
 // Используйте написанную ранее функцию, чтобы узнавать, совершенное число или нет.
 
 function checkNumber2() {
-    let firstNumber = +prompt(`Введите первое число диапазона`);
 
-let secondNumber = +prompt(`Введите второе число диапазона`);
+    let _question1 = 'Введите первое число диапазона';
+    let _variableOne = +prompt(_question1, '1');
+    let firstNumber = validNumber(_variableOne, _question1);    
+
+    let _question2 = 'Введите второе число диапазона';
+    let _variableTwo = +prompt(_question2, '100');
+    let secondNumber = validNumber(_variableTwo, _question2);  
+
+    let a, b, c, d;
+    let arr = [];
 
     while (firstNumber <= secondNumber) {
-        sum = firstNumber;
+        sum = firstNumber;        
         b = sum;
         d = 0;
         while (sum > 0) {
@@ -103,12 +167,11 @@ let secondNumber = +prompt(`Введите второе число диапаз�
             }
         }
         if (d == b) {
-            alert(d);
+            arr.push(d);
         }
-
         firstNumber++;
-
     }
+    alert(arr);
 
 }
 // Написать функцию, которая принимает время (часы, минуты, секунды) и выводит его на экран в формат
