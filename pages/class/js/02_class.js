@@ -21,28 +21,36 @@ class Marker {
         console.log (text);
         }
   }
+  let fill = document.querySelector(".fill");
+  let maxLength = document.getElementById("textarea"); 
+  
 
-  function countChar() {  
+  function countChar() { 
+    let textBox = maxLength.value.replace(/[\s]/g, '').length; 
     let _markerQuatity = 400;
-    let fill = document.getElementsByClassName("fill");
-    fill[0].style.height = `${_markerQuatity - (document.getElementById("textarea").value.replace(/[\s]/g, '').length * 2)}px`;
-    let maxLength = document.getElementById("textarea");
+    
+    let btn = document.querySelector("button");
+    btn.addEventListener('click', function () {
+        fill.style.height = `${400}px`;
+        textBox = 0;        
+    });
+
+    fill.style.height = `${_markerQuatity - (textBox * 2)}px`;
     maxLength.setAttribute("maxlength", 200);
+    console.log(textBox);
+    
 };
    
-
 let write = new Marker({
     markerFont: 40,    
     markerColor: 'red',       
 });
 write.print ();
 
-function quantity() {
-    let quantity = document.getElementsByClassName("fill");
-    quantity[0].style.height = `${400}px`;
-    
-    
-}
+// function quantity() {    
+//     fill.style.height = `${400}px`;
+     
+// }
 
 
 
